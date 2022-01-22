@@ -39,7 +39,7 @@ class ContactController extends Controller
     public function show($id)
     {
         $contact = contact::find($id);
-        return view('show', compact('contact'));
+        return view('contacts.show', compact('contact'));
     }
     public function edit($id)
     {

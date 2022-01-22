@@ -8,9 +8,10 @@
 </head>
 <body>@csrf
     <h1>Detalhes do Contato</h1>
-    <a href="/contact/edit/{{$contact->id}}">Editar</a>
-    <h2>{{$contact->name}}/</h2>
-    <h4>{{$contact->email}}</h4>
-    <p>{{$contact->phone}}</p>
+    <a href="/contacts/edit/{{$contact->id}}">Editar</a>
+    <a href="/contacts/delete/{{$contact->id}}">Deletar</a>
+    <h2>Nome do contato {{$contact->name}}/</h2>
+    <h4>E-mail do contato {{$contact->email}}</h4>
+    <p>Telefone do contato {{$contact->phone}}</p>
 </body>
 </html>

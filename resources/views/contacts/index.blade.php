@@ -13,7 +13,7 @@
     <h1>Meus Contatos</h1>
     @csrf
     @foreach ($contacts as $cont)
-        <a href="contacts/edit/{{$cont->id}}"> 
+        <a href="contacts/show/{{$cont->id}}"> 
         {{$cont->name}}</a>
     @endforeach
     </form>
