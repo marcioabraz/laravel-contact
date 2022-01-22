@@ -7,6 +7,7 @@
     <title>404</title>
 </head>
 <body>
-    página não encontrada!
+    Erro página não encontrada!
+    <a href="/contacts">Voltar</a>
 </body>
 </html>

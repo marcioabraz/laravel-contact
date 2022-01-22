@@ -46,11 +46,11 @@ class ContactController extends Controller
         $user = auth()->user();
         $contact = contact::find($id);
         if ($contact->user_id == $user->id){
-            return view('contacts.edit', compact('contact'));
-            //return redirect('/contacts/notshow');
+            // return view('contacts.edit', compact('contact'));
+            return redirect('/contacts.not show');
         }
         else{
-            return redirect('/contacts.notshow');
+            return redirect('/contacts.not show');
         }
     }
     public function update(Request $request, $id)
@@ -68,10 +68,5 @@ class ContactController extends Controller
         $contact = contact::find($id);
         $contact->delete();
         return redirect('/contacts');
-    }
-    public function notshow()
-    {
-        return redirect('');
-
     }
 }
