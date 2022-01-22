@@ -40,7 +40,7 @@ class ContactController extends Controller
     {
         $user = auth()->user();
         $contact = contact::find($id);
-        if ($contact->user_id !== $user->id){
+        if ($contact->user_id == $user->id){
             return view('contacts.show', compact('contact'));
         }
         else{
