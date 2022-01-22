@@ -19,7 +19,7 @@ Route::get('/dashboard',[ItemController::class,'dashboard']);
 Route::get('/contacts', [ContactController::class, 'index']);
 Route::get('/contacts/create',[ContactController::class,'create']);
 Route::post('/contacts/store',[ContactController::class,'store']);
-Route::get('/contacts/show/{id}',[ContactController::class,'show']);
+Route::get('/contacts/show/{id}',[ContactController::class,'show'])->middleware('auth');
 Route::get('/contacts/edit/{id}',[ContactController::class,'edit']);
 Route::post('/contacts/update/{id}',[ContactController::class,'update']);
 Route::get('/contacts/delete/{id}',[ContactController::class,'destroy']);
