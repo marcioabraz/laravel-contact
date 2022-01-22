@@ -43,8 +43,14 @@ class ContactController extends Controller
     }
     public function edit($id)
     {
+        $user = auth()->user();
         $contact = contact::find($id);
+        if ($contact->user_id == $user->id){
         return view('contacts.edit', compact('contact'));
+        }
+        else{
+            return redirect('/contacts');
+        }
     }
     public function update(Request $request, $id)
     {
