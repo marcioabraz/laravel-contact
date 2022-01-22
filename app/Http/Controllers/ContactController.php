@@ -38,20 +38,21 @@ class ContactController extends Controller
 
     public function show($id)
     {
+        $user = auth()->user();
         $contact = contact::find($id);
-        return view('contacts.show', compact('contact'));
+        if ($contact->user_id == $user->id){
+            return view('contacts.show', compact('contact'));
+        }
+        else{
+            return redirect('/contacts.notshow');
+        }
+        
     }
     public function edit($id)
     {
         $user = auth()->user();
         $contact = contact::find($id);
-        if ($contact->user_id == $user->id){
-            //return redirect('/contacts/notshow');
-            return view('contacts.edit', compact('contact'));
-        }
-        else{
-            return redirect('/contacts.notshow');
-        }
+        return view('contacts.edit', compact('contact'));
     }
     public function update(Request $request, $id)
     {
