@@ -44,7 +44,7 @@ class ContactController extends Controller
             return view('contacts.show', compact('contact'));
         }
         else{
-            return redirect('/contacts.notshow');
+            return view('contacts.notshow');
         }
         
     }
@@ -52,7 +52,12 @@ class ContactController extends Controller
     {
         $user = auth()->user();
         $contact = contact::find($id);
-        return view('contacts.edit', compact('contact'));
+        if ($contact->user_id == $user->id){
+            return view('contacts.edit', compact('contact'));
+        }
+        else{
+            return view('contacts.notedit');
+        }
     }
     public function update(Request $request, $id)
     {
