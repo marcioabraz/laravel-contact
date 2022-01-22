@@ -76,7 +76,7 @@ class ContactController extends Controller
         return redirect('/contacts');
     }
     public function notshow(){
-        return view('contacts/notshow');
+        return view('contacts/not show');
     }
     
 }
