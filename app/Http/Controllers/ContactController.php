@@ -49,7 +49,7 @@ class ContactController extends Controller
         return view('contacts.edit', compact('contact'));
         }
         else{
-            return redirect('/contacts');
+            return redirect('/contacts.notshow');
         }
     }
     public function update(Request $request, $id)
