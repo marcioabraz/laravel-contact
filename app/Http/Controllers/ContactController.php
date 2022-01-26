@@ -41,7 +41,7 @@ class ContactController extends Controller
         $user = auth()->user();
         $contact = contact::find($id);
         if ($contact->user_id != $user->id){
-            about(404);
+            abort(404);
         }
         return view('contacts.show', compact('contact'));
         
@@ -51,7 +51,7 @@ class ContactController extends Controller
         $user = auth()->user();
         $contact = contact::find($id);
         if ($contact->user_id != $user->id){
-            about(404);
+            abort(404);
         }
         return view('contacts.edit', compact('contact'));
     }
