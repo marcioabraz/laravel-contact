@@ -40,24 +40,20 @@ class ContactController extends Controller
     {
         $user = auth()->user();
         $contact = contact::find($id);
-        if ($contact->user_id == $user->id){
-            return view('contacts.show', compact('contact'));
+        if ($contact->user_id != $user->id){
+            about(404)  ;
         }
-        else{
-            return redirect('/contacts/notshow');
-        }
+        return view('contacts.show', compact('contact'));
         
     }
     public function edit($id)
     {
         $user = auth()->user();
         $contact = contact::find($id);
-        if ($contact->user_id == $user->id){
-            return view('contacts.edit', compact('contact'));
+        if ($contact->user_id != $user->id){
+            about(404)  ;
         }
-        else{
-            return view('contacts.notedit');
-        }
+        return view('contacts.edit', compact('contact'));
     }
     public function update(Request $request, $id)
     {
@@ -76,7 +72,7 @@ class ContactController extends Controller
         return redirect('/contacts');
     }
     public function notshow(){
-        return view('contacts/not show');
+        return view("contacts/not show");
     }
     
 }
